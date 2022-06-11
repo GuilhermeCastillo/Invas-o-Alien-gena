@@ -25,12 +25,7 @@ class Ship():
 		self.moving_left = False
 				
 	def update(self):
-		"""Atualiza a posição da espaçonave de acordo com a flag de movimento."""
-		# ~if self.moving_right:
-			# ~self.center += self.ai_settings.ship_speed_factor		
-		# ~if self.moving_left:
-			# ~self.center -= self.ai_settings.ship_speed_factor		
-		
+		"""Atualiza a posição da espaçonave de acordo com a flag de movimento."""		
 		# Atualiza o objeto rect de acodro com o self.center
 		# pega somente a parte inteira
 		self.rect.centerx = self.center
