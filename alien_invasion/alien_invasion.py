@@ -18,12 +18,16 @@ def run_game():
 	
 	# Cria um grupo no qual serão armazenados os projéteis bullets = Group()
 	bullets = Group()
+	aliens = Group()
 	
 	# Define a cor de fundo
 	bg_color = (230, 230, 230)
 	
+	# Cria uma frota de alienígenas
+	gf.create_fleet(ai_settings, screen, aliens)
+	
 	# Cria um alienígena
-	alien = Alien(ai_settings, screen)
+	# ~alien = Alien(ai_settings, screen)
 	
 	# Inicia o laço principal do jogo
 	while True:
@@ -31,6 +35,6 @@ def run_game():
 		gf.check_events(ai_settings, screen, ship, bullets)
 		ship.update()
 		gf.update_bullets(bullets)
-		gf.update_screen(ai_settings, screen, ship, alien, bullets)
+		gf.update_screen(ai_settings, screen, ship, aliens, bullets)
 		
 run_game()
