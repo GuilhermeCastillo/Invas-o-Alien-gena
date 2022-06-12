@@ -3,6 +3,7 @@ import game_functions as gf
 from pygame.sprite import Group
 from settings import Settings
 from ship import Ship
+from alien import Alien
 
 def run_game():
 	# Inicializa o jogo e cria um objeto para a tela
@@ -21,12 +22,15 @@ def run_game():
 	# Define a cor de fundo
 	bg_color = (230, 230, 230)
 	
+	# Cria um alienígena
+	alien = Alien(ai_settings, screen)
+	
 	# Inicia o laço principal do jogo
 	while True:
 		# Observa eventos 
 		gf.check_events(ai_settings, screen, ship, bullets)
 		ship.update()
 		gf.update_bullets(bullets)
-		gf.update_screen(ai_settings, screen, ship, bullets)
+		gf.update_screen(ai_settings, screen, ship, alien, bullets)
 		
 run_game()
