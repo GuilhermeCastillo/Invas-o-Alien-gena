@@ -22,7 +22,6 @@ def fire_bullet(ai_settings, screen, ship, bullets):
 		new_bullet = Bullet(ai_settings, screen, ship)
 		bullets.add(new_bullet)
 
-
 def check_keyup_events(event, ship):
 	"""Responde a soltura da tecla"""
 	if event.key == pygame.K_RIGHT:
@@ -55,7 +54,7 @@ def update_screen(ai_settings, screen, ship, aliens, bullets):
 	# Deixa a tela mais recente visível
 	pygame.display.flip()
 	
-def update_bullets(bullets):
+def update_bullets(aliens, bullets):
 	"""Atualiza a posição dos projéteis e se livra dos projéteis"""
 	# Atualiza as posições dos projéteis
 	bullets.update()
@@ -64,7 +63,11 @@ def update_bullets(bullets):
 	for bullet in bullets.copy():
 		if bullet.rect.bottom <= 0:
 			bullets.remove(bullet)
-		
+	# Verifica se algum projétil atingiu os alienígenas
+	# Em caso afirmativo, livrai-se do projétil e do alienígena
+	collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
+	
+	
 def create_fleet(ai_settings, screen, ship, aliens):
 	"""Cria uma frota completa de alienígenas"""
 	# Cria um alienígena e calcula o número de alienígenas em uma linha
