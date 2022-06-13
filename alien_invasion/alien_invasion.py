@@ -24,7 +24,7 @@ def run_game():
 	bg_color = (230, 230, 230)
 	
 	# Cria uma frota de alienígenas
-	gf.create_fleet(ai_settings, screen, aliens)
+	gf.create_fleet(ai_settings, screen, ship, aliens)
 	
 	# Cria um alienígena
 	# ~alien = Alien(ai_settings, screen)
