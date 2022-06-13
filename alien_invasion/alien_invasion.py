@@ -16,18 +16,18 @@ def run_game():
 	# Cria uma espaçonave
 	ship = Ship(ai_settings, screen)
 	
+	# Cria um alienígena
+	alien = Alien(ai_settings, screen)
+	
 	# Cria um grupo no qual serão armazenados os projéteis bullets = Group()
 	bullets = Group()
 	aliens = Group()
 	
-	# Define a cor de fundo
-	bg_color = (230, 230, 230)
-	
 	# Cria uma frota de alienígenas
 	gf.create_fleet(ai_settings, screen, ship, aliens)
 	
-	# Cria um alienígena
-	# ~alien = Alien(ai_settings, screen)
+	# Define a cor de fundo
+	bg_color = (230, 230, 230)
 	
 	# Inicia o laço principal do jogo
 	while True:
@@ -35,6 +35,7 @@ def run_game():
 		gf.check_events(ai_settings, screen, ship, bullets)
 		ship.update()
 		gf.update_bullets(bullets)
+		gf.update_aliens(ai_settings, aliens)
 		gf.update_screen(ai_settings, screen, ship, aliens, bullets)
 		
 run_game()
