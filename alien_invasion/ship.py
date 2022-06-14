@@ -35,7 +35,11 @@ class Ship():
 			self.center += self.ai_settings.ship_speed_factor
 		if self.moving_left and self.rect.left > 0:
 			self.center -= self.ai_settings.ship_speed_factor		
-			
+	
+	def center_ship(self):
+		"""Centraliza a espaçonave na tela"""
+		self.center = self.screen_rect.centerx
+	
 	def blitme(self):
 		"""Desenha a espaçonave em sua posição atual."""
 		self.screen.blit(self.image, self.rect)
