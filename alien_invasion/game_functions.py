@@ -34,6 +34,7 @@ def ship_hit(ai_settings, stats, screen, ship, aliens, bullets):
 		sleep(0.5)
 	else:
 		stats.game_active = False
+		pygame.mouse.set_visible(True)
 
 def fire_bullet(ai_settings, screen, ship, bullets):
 	"""Dispara um projétil se o limite ainda não foi alcançado."""
@@ -66,7 +67,10 @@ ship, bullets):
 
 def check_play_button(ai_settings, screen, stats, play_button,ship, aliens, bullets, mouse_x, mouse_y):
 	"""Inicia um novo jogo quando o jogador clicar em Play"""
-	if play_button.rect.collidepoint(mouse_x, mouse_y):
+	button_clicked = play_button.rect.collidepoint(mouse_x, mouse_y)
+	if button_clicked and not stats.game_active:
+		# Oculta o cursor do mouse
+		pygame.mouse.set_visible(False)
 		stats.game_active = True
 		# Reinicia os dados estatíticos do jogo
 		stats.reset_stats()
