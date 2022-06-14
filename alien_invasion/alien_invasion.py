@@ -32,7 +32,7 @@ def run_game():
 	gf.create_fleet(ai_settings, screen, ship, aliens)
 	
 	# Define a cor de fundo
-	# ~bg_color = (230, 230, 230)
+	bg_color = (230, 230, 230)
 	
 	# Cria uma instância para armazenar dados estatíticos do jogo
 	stats = GameStats(ai_settings)
