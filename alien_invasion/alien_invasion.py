@@ -6,6 +6,7 @@ from ship import Ship
 from alien import Alien
 from game_stats import GameStats
 from button import Button
+from scoreboard import Scoreboard
 
 def run_game():
 	# Inicializa o jogo e cria um objeto para a tela
@@ -36,6 +37,7 @@ def run_game():
 	
 	# Cria uma instância para armazenar dados estatíticos do jogo
 	stats = GameStats(ai_settings)
+	sb = Scoreboard(ai_settings, screen, stats)
 	
 	# Inicia o laço principal do jogo
 	while True:
@@ -47,7 +49,7 @@ def run_game():
 			ship.update()
 			gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
 			gf.update_aliens(ai_settings, stats, screen, ship, aliens, bullets)
-		gf.update_screen(ai_settings, screen, stats, ship, aliens,
+		gf.update_screen(ai_settings, screen, stats, sb, ship, aliens,
 		bullets, play_button)
 		
 run_game()
