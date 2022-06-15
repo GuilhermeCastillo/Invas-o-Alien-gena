@@ -11,3 +11,13 @@ atingir a espaçonave do jogador ou alcançar a parte inferior da tela, o
 jogador perderá uma nave. Se o jogador perder três espaçonaves, o
 jogo terminará.
 </p>
+
+<h3>Rodar aplicação</h3>
+
+<p>
+    
+    pip install pygame==2.0.0.dev6
+
+    python3 alien_invasion.py
+
+</p>
