@@ -42,8 +42,8 @@ def run_game():
 	# Inicia o laço principal do jogo
 	while True:
 		# Observa eventos 
-		gf.check_events(ai_settings, screen, stats, play_button, aliens, 
-		ship, bullets)
+		gf.check_events(ai_settings, screen, stats, 
+		sb, play_button, aliens, ship, bullets)
 		
 		if stats.game_active:
 			ship.update()
