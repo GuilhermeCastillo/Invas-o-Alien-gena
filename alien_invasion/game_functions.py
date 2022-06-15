@@ -123,6 +123,12 @@ def update_bullets(ai_settings, screen, stats, sb, ship, aliens, bullets):
 	check_bullet_alien_collisions(ai_settings, screen, stats, sb, ship, aliens, 
 	bullets)
 	
+def check_high_score(stats, sb):
+	"""Verifica se há uma nova pontuação máxima"""
+	if stats.score > stats.high_score:
+		stats.high_score = stats.score
+		sb.prep_high_score()
+		
 def check_bullet_alien_collisions(ai_settings, screen,stats, sb, ship,
 aliens, bullets):
 	"""Responde a colisão entre os projéteis e alienígenas"""
@@ -130,9 +136,12 @@ aliens, bullets):
 	collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
 	
 	if collisions:
-		stats.score += ai_settings.alien_points
-		sb.prep_score()
-	
+		for aliens in collisions.values():
+			
+			stats.score += ai_settings.alien_points * len(aliens)
+			sb.prep_score()
+		check_high_score(stats, sb)
+		
 	if len(aliens) == 0:
 		# Destrói os projéteis existentes e cria uma frota nova
 		bullets.empty()

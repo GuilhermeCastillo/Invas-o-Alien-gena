@@ -8,6 +8,9 @@ class GameStats():
 		
 		# Inicia a Invasão Alienígena em um estado ativo
 		self.game_active = False
+		
+		# Pontuação máxima
+		self.high_score = 0
 	
 	def reset_stats(self):
 		"""Inicializa os dados estatíticos que podem mudar durante o 
